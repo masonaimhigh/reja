@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true })); // html dan traditional request
 //2:Session code
 
 //3: View code
-// BSSR - backend da view, fronted yasaymiz, bu tradational usul - backend html yasab climate ga yuboramiz
+// BCCR - backend da view, fronted yasaymiz, bu tradational usul - backend html yasab climate ga yuboramiz
 app.set("views", "views");
 app.set("view engine", "ejs"); // views ni ichidan o'qiydi - folder name same
 
