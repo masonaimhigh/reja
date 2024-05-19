@@ -548,3 +548,51 @@ margin: 0;
   .percent-line__wordpress {
     width: 85%;
   }
+
+  .extra-skills__title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: rgb(43, 43, 43);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 123.6%;
+    letter-spacing: 0%;
+    text-align: left;
+    text-transform: capitalize;
+  }
+  
+  .left5 {
+    flex-direction: column;
+    margin-left: 37px;
+  }
+
+  .extra-skills__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .extra-skills__item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .extra-skills__item {
+    margin-bottom: 5px;
+  }
+  
+  .extra-skills__img {
+    margin-right: 15px;
+  }
+  
+  .extra-skills__text {
+    margin: 0;
+    color: rgb(118, 118, 118);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: left;
+    text-transform: capitalize;
+  }
+  
