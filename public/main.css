@@ -36,7 +36,6 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: aqua; */
 }
 .main_frame .left_1 .left_1-1 {
     display: flex;
@@ -44,13 +43,53 @@ body{
     position: relative;
     width: 156.16px;
     height: 142.53px;
-}
+  }
+
+  .left_1 .left_1-2 {
+    position: relative;
+    width: 66.63px;
+    height: 20.9px;
+    margin-bottom: 6.65px;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 123.6%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+
+    color: #2b2b2b;
+  }
+
+  .main_frame .left_frame .left_1-3 {
+    position: relative;
+    width: 147.84px;
+    height: 25.65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
+
+    text-transform: capitalize;
+    font-feature-settings: "calt" off, 'kern' off;
+    color:  #767676;
+  }
 
 .main_frame .marginer{
     position: relative;
     width: 220px;
     height: 0px;
     border: 1.5px solid #f0f0f6;
+    margin-left: 37px;
 }
 .main_frame .left_2 {
     width: 100%;
@@ -75,48 +114,12 @@ body{
     gap: 5px;
 }
 
-.left_1-2 {
-    position: relative;
-    width: 66.63px;
-    height: 20.9px;
-    margin-bottom: 6.65px;
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 123.6%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: capitalize;
-
-    color: #2b2b2b;
-}
 .main_frame .left_frame .left_3 {
     position: relative;
     width: 220px;
     background-color: aqua;
 }
-.main_frame .left_frame .left_1-3 {
-    position: relative;
-    width: 147.84px;
-    height: 25.65px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-
-    font-family: sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 24px;
-
-    text-transform: capitalize;
-    font-feature-settings: "calt" off, 'kern' off;
-    color:  #767676;
-}
 .left-icons {
     position: relative;
     display: flex;
