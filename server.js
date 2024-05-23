@@ -2,7 +2,7 @@ const http = require("http");
 const mongodb = require("mongodb");
 let db;
 const connectionString =
-  "mongodb+srv://mason:Mcalbert23@cluster0.haiew6q.mongodb.net/Reja?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://mason:Mcalbert23@cluster0.haiew6q.mongodb.net/Plan?retryWrites=true&w=majority&appName=Cluster0";
 mongodb.connect(
   connectionString,
   {
@@ -10,7 +10,7 @@ mongodb.connect(
     useUnifiedTopology: true,
   },
   (err, client) => {
-    if (err) console.log("ERROR on connection to MongoDB");
+    if (err) console.log("ERROR on connection MongoDB");
     else {
       console.log("MongoDB connection succeed");
       module.exports = client;
@@ -18,7 +18,7 @@ mongodb.connect(
       const app = require("./app");
       const server = http.createServer(app);
       let PORT = 3000;
-      server.listen(PORT, function () {
+      server.listen(3000, function () {
         console.log(
           `The server is running succesfully on port: ${PORT}, http://localhost:${PORT}`
         );
