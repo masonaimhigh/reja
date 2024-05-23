@@ -37,15 +37,40 @@ app.set("view engine", "ejs");
 //   res.end(`<h1>Siz sovgalar bolimidasiz</h1>`);
 // });
 app.post("/create-item", (req, res) => {
+  console.log("user entered /create-item");
   console.log(req.body);
-  res.json({ test: "success" });
+  // res.end("success");
+  // res.json({ test: "success" });
+  const new_reja = req.body.reja;
+  db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
+    if (err) {
+      console.log(err);
+      res.end("something went wrong");
+    } else {
+      res.end("successfully added ");
+    }
+  });
 });
 
 app.get("/author", (req, res) => {
   res.render("author", { user: user });
 });
 
-app.get("/", (req, res) => {
-  res.render("reja");
+// app.get("/", (req, res) => {
+//   res.render("reja");
+//  });
+app.get("./", function (req, res) {
+  console.log("user entered /");
+  db.collection("plans")
+    .find()
+    .toArray((err, data) => {
+      if (err) {
+        console.log(err);
+        res.end("something went wrong");
+      } else {
+        // console.log(data);
+        res.render("reja", { items: data });
+      }
+    });
 });
 module.exports = app;
