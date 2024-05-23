@@ -59,7 +59,7 @@ app.get("/author", (req, res) => {
 // app.get("/", (req, res) => {
 //   res.render("reja");
 //  });
-app.get("./", function (req, res) {
+app.get("/", function (req, res) {
   console.log("user entered /");
   db.collection("plans")
     .find()
