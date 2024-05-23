@@ -2,7 +2,6 @@ console.log("Web serverni boshlash");
 const express = require("express");
 const app = express();
 const fs = require("fs");
-
 let user;
 fs.readFile("database/user.json", "utf8", (err, data) => {
   if (err) {
@@ -11,28 +10,22 @@ fs.readFile("database/user.json", "utf8", (err, data) => {
     user = JSON.parse(data);
   }
 });
-
 //MongoDB connect
 // MongoDB call
 const db = require("./server").db();
-
 //1: Kirish kodlari
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 //2:Session code
-
 //3: View code
 // BCCR - backend da view, fronted yasaymiz, bu tradational usul - backend html yasab climate ga yuboramiz
 app.set("views", "views");
 app.set("view engine", "ejs");
-
 //4: Routing code
 // app.get("/hello", function (req, res) {
 //   res.end(`<h1 style= "background: red">Hello World </h1>`);
 // });
-
 // app.get("/gift", function (req, res) {
 //   res.end(`<h1>Siz sovgalar bolimidasiz</h1>`);
 // });
@@ -51,16 +44,15 @@ app.post("/create-item", (req, res) => {
     }
   });
 });
-
 app.get("/author", (req, res) => {
   res.render("author", { user: user });
 });
-
 // app.get("/", (req, res) => {
 //   res.render("reja");
 //  });
 app.get("/", function (req, res) {
   console.log("user entered /");
+
   db.collection("plans")
     .find()
     .toArray((err, data) => {
