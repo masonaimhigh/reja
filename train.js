@@ -25,7 +25,7 @@
 //   }
 // }
 
-// console.log("passed here 0");
+// console.log("passed here 0");         // parametr sifatida function ishga tushadi
 // maslahatBering(65, (err, data) => {
 //   if (err) console.log("ERROR:", err);
 //   else {
@@ -58,7 +58,7 @@
 // });
 // console.log("passed here 1");
 
-//Asynchrous functions
+//Asynchrous functions    - sync ishga tushgandan keyin ishga tushadi, single thread ni band qilmaydi
 // async function maslahatBering(a) {
 //   if (typeof a !== "number") throw new Error("Insert  a number");
 //   else if (a <= 20) return list[0];
