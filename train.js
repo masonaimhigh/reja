@@ -108,14 +108,39 @@
 
 // Exercise
 
-function countElement(letter, value) {
-  const text = letter.toLowerCase();
-  let n = 0;
-  for (let i = 0; i < value.length; i++) {
-    if (value[i].toLowerCase() === text) {
-      n++;
+// function countElement(letter, value) {
+//   const text = letter.toLowerCase();
+//   let n = 0;
+//   for (let i = 0; i < value.length; i++) {
+//     if (value[i].toLowerCase() === text) {
+//       n++;
+//     }
+//   }
+//   return n;
+// }
+// console.log(countElement("E", "element"));
+
+/* B-TASK: 
+Shunday function tuzing, u 1ta string parametrga ega bolsin, hamda osha stringda qatnashgan raqamlarni sonini bizga return qilsin.
+MASALAN countDigits("acs44ewe67t0s6fgb9") 7ni return qiladi.
+*/
+
+function countDigits(a) {
+  let count = 0;
+
+  for (let i = 0; i < a.length; i++) {
+    if (!isNaN(parseInt(a[i]))) {
+      count++;
     }
   }
-  return n;
+
+  if (count === 0) {
+    return `There is no number in string`;
+  } else {
+    return count;
+  }
 }
-console.log(countElement("E", "element"));
+
+console.log(countDigits("acs44ewe67t0s6fgb9"));
+console.log(countDigits("www333ooo"));
+console.log(countDigits("I study English 2022"));
