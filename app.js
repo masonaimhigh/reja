@@ -13,6 +13,7 @@ fs.readFile("database/user.json", "utf8", (err, data) => {
 //MongoDB connect
 // MongoDB call
 const db = require("./server").db();
+const mongodb = require("mongodb");
 //1: Kirish kodlari
 app.use(express.static("public"));
 app.use(express.json());
@@ -36,14 +37,14 @@ app.post("/create-item", (req, res) => {
   // res.json({ test: "success" });
   const new_reja = req.body.reja;
   db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
-    // console.log(data.ops);
-    // res.json(data.ops[0]);
-    if (err) {
-      console.log(err);
-      res.end("something went wrong");
-    } else {
-      res.end("successfully added ");
-    }
+    console.log(data);
+    res.json(data.ops[0]);
+    // if (err) {
+    //   console.log(err);
+    //   res.end("something went wrong");
+    // } else {
+    //   res.end("successfully added ");
+    // }
   });
 });
 app.get("/author", (req, res) => {
@@ -52,6 +53,7 @@ app.get("/author", (req, res) => {
 // app.get("/", (req, res) => {
 //   res.render("reja");
 //  });
+
 app.get("/", function (req, res) {
   console.log("user entered /");
 
@@ -66,5 +68,17 @@ app.get("/", function (req, res) {
         res.render("reja", { items: data });
       }
     });
+});
+
+app.post("/delete-item", (req, res) => {
+  const id = req.body.id;
+  db.collection("plans").deleteOne(
+    { _id: new mongodb.ObjectId(id) },
+    function (err, data) {
+      res.json({ state: "success" });
+    }
+  );
+  // console.log(id);
+  // res.end("done");
 });
 module.exports = app;
