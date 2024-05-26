@@ -1,5 +1,7 @@
-const res = require("express/lib/response");
-const { response } = require("../app");
+// const res = require("express/lib/response");
+// const { response } = require("../app");
+
+console.log("FrontEnd Js ishga tushdi");
 
 function itemTemplate(item) {
   return `<li
@@ -39,7 +41,30 @@ document.getElementById("create-form").addEventListener("submit", (e) => {
       console.log("ILtimos qaytadan harakat qiling");
     });
 });
+document.addEventListener("click", function (e) {
+  // Delete oper
+  // console.log(e.target);
+  if (e.target.classList.contains("delete-me")) {
+    if (confirm("Aniq o'chirmoqchimisiz?")) {
+      axios
+        .post("/delete-item", { id: e.target.getAttribute("data-id") })
+        .then((response) => {
+          console.log(response.data);
+          e.target.parentElement.parentElement.remove();
+        })
+        .catch((err) => {
+          console.log("ILtimos qaytadan harakat qiling");
+        });
+    }
+  }
 
+  // Edit oper
+  if (e.target.classList.contains("edit-me")) {
+    alert("Siz edit-me ni bosdizngiz");
+  }
+});
+
+/*
 document.addEventListener("click", function (e) {
   // Delete operation
   // console.log(e.target);
@@ -68,3 +93,4 @@ document.addEventListener("click", function (e) {
     alert("Siz edit-me ni bosdizngiz");
   }
 });
+*/
