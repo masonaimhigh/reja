@@ -1,6 +1,8 @@
 // const res = require("express/lib/response");
 // const { response } = require("../app");
 
+const { response } = require("express");
+
 console.log("FrontEnd Js ishga tushdi");
 
 function itemTemplate(item) {
@@ -60,37 +62,32 @@ document.addEventListener("click", function (e) {
 
   // Edit oper
   if (e.target.classList.contains("edit-me")) {
-    alert("Siz edit-me ni bosdizngiz");
-  }
-});
-
-/*
-document.addEventListener("click", function (e) {
-  // Delete operation
-  // console.log(e.target);
-
-  if (e.target.classList.contains("delete-me")) {
-    // alert("Siz delete-me ni bosdizngiz");
-    if (confirm("Aniq o'chirmoqchimisiz?")) {
-      //   alert("Yes deb javob berildi");
-      //  } else {
-      //     alert("No deb javob berildi");
-      //   }
+    let userInput = prompt(
+      "O'zgartirish kiriting",
+      e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
+    );
+    if (userInput) {
+      // console.log(userInput);
       axios
-        .post("/delete-item", { id: e.target.getAttribute("data-id") })
+        .post("/edit-item", {
+          id: e.target.getAttribute("data-id"),
+          new_input: userInput,
+        })
         .then((response) => {
           console.log(response.data);
-          e.target.parentElement.parentElement.remove();
+          e.target.parentElement.parentElement.querySelector(
+            ".item-text"
+          ).innerHTML = userInput;
         })
         .catch((err) => {
           console.log("ILtimos qaytadan harakat qiling");
         });
     }
   }
-
-  // Edit operation
-  if (e.target.classList.contains("edit-me")) {
-    alert("Siz edit-me ni bosdizngiz");
-  }
 });
-*/
+document.getElementById("clean-all").addEventListener("click", function () {
+  axios.post("/delete-all", { delete_all: true }).then((response) => {
+    alert(response.data.state);
+    document.location.reload();
+  });
+});
