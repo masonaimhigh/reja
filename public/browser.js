@@ -54,7 +54,7 @@ document.addEventListener("click", function (e) {
         });
     }
   }
-
+  // edit oper
   if (e.target.classList.contains("edit-me")) {
     let userInput = prompt(
       "O'zgartirish kirinting",
@@ -64,7 +64,7 @@ document.addEventListener("click", function (e) {
       axios
         .post("/edit-item", {
           id: e.target.getAttribute("data-id"),
-          newInput: userInput,
+          new_input: userInput,
         })
         .then((response) => {
           console.log(response.data);

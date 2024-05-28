@@ -61,7 +61,7 @@ app.post("/edit-item", (req, res) => {
       res.json({ state: "success" });
     }
   );
-  res.end("done");
+  // res.end("done");
 });
 
 app.post("/delete-all", (req, res) => {
