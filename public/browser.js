@@ -1,8 +1,3 @@
-// const res = require("express/lib/response");
-// const { response } = require("../app");
-
-const { response } = require("express");
-
 console.log("FrontEnd Js ishga tushdi");
 
 function itemTemplate(item) {
@@ -60,18 +55,16 @@ document.addEventListener("click", function (e) {
     }
   }
 
-  // Edit oper
   if (e.target.classList.contains("edit-me")) {
     let userInput = prompt(
-      "O'zgartirish kiriting",
+      "O'zgartirish kirinting",
       e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
     );
     if (userInput) {
-      // console.log(userInput);
       axios
         .post("/edit-item", {
           id: e.target.getAttribute("data-id"),
-          new_input: userInput,
+          newInput: userInput,
         })
         .then((response) => {
           console.log(response.data);
@@ -85,9 +78,15 @@ document.addEventListener("click", function (e) {
     }
   }
 });
+
 document.getElementById("clean-all").addEventListener("click", function () {
-  axios.post("/delete-all", { delete_all: true }).then((response) => {
-    alert(response.data.state);
-    document.location.reload();
-  });
+  axios
+    .post("/delete-all", { delete_all: true })
+    .then((response) => {
+      alert(response.data.state);
+      document.location.reload();
+    })
+    .catch((err) => {
+      console.log("ILtimos qaytadan harakat qiling");
+    });
 });
