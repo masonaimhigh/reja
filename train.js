@@ -1,35 +1,46 @@
-// D-TASK:
+// MIT E-Task
+// Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
+// MASALAN: getReverse("hello") return qilsin "olleh"
+function getReverse(str) {
+  let reversedArray = str.split("").reverse();
+  let reversedString = reversedArray.join("").toString();
+  return reversedString;
+}
 
+console.log(getReverse("hello"));
+console.log(getReverse("Mason"));
+
+// D-TASK:
 // Shunday function tuzing, u 2ta string parametr ega bolsin, hamda agar har ikkala string bir
 //  hil harflardan iborat bolsa true aks holda false qaytarsin
 // MASALAN checkContent("mitgroup", "gmtiprou") return qiladi true;
 
-function checkContent(string1, string2) {
-  if (string1.length !== string2.length) {
-    return false;
-  }
+// function checkContent(string1, string2) {
+//   if (string1.length !== string2.length) {
+//     return false;
+//   }
 
-  let toLowerfirstString = string1.toLowerCase();
-  let toLowersecondString = string2.toLowerCase();
+//   let toLowerfirstString = string1.toLowerCase();
+//   let toLowersecondString = string2.toLowerCase();
 
-  for (let i = 0; i < toLowerfirstString.length; i++) {
-    let index = toLowersecondString.indexOf(toLowerfirstString[i]);
-    if (index === -1) {
-      return false;
-    } else {
-      toLowersecondString =
-        toLowersecondString.slice(0, index) +
-        toLowersecondString.slice(index + 1);
-    }
-  }
+//   for (let i = 0; i < toLowerfirstString.length; i++) {
+//     let index = toLowersecondString.indexOf(toLowerfirstString[i]);
+//     if (index === -1) {
+//       return false;
+//     } else {
+//       toLowersecondString =
+//         toLowersecondString.slice(0, index) +
+//         toLowersecondString.slice(index + 1);
+//     }
+//   }
 
-  return true;
-}
+//   return true;
+// }
 
-console.log(checkContent("mitgroup", "gmtiprou"));
-console.log(checkContent("mason", "Matheo"));
-console.log(checkContent("java", "javaScript"));
-console.log(checkContent("program", "ramprog"));
+// console.log(checkContent("mitgroup", "gmtiprou"));
+// console.log(checkContent("mason", "Matheo"));
+// console.log(checkContent("java", "javaScript"));
+// console.log(checkContent("program", "ramprog"));
 
 // MITASK-C
 
@@ -175,7 +186,7 @@ console.log(checkContent("program", "ramprog"));
 //   }
 // }
 
-// call viathen / catch
+// call via then / catch
 // console.log("passed here 0");
 // maslahatBering(20)
 //   .then((data) => {
