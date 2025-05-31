@@ -21,7 +21,7 @@ app.get("/hello", function(req, res){
 }); 
 
 app.get("/gift", function(req, res){
-    res.end("Siz sovgalar bolimidasiz");
+    res.end("Siz sovgalar bolimiasiz");
 }); 
 
 const server = http.createServer(app);
