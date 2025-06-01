@@ -1,5 +1,6 @@
 console.log("Web Serverni boshlash");
 const express = require("express");
+const res = require("express/lib/response");
 const app = express();
 const http = require("http");
 
@@ -10,19 +11,28 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true})); // html form recieved
 
 //2 Session
-
 //3 Views - BSSR backenda frontend 
 app.set('views', "views");
 app.set("view engine", "ejs");
 
-//4 Routing
-app.get("/hello", function(req, res){
-    res.end("Hello World");
+
+//4 Routing code
+app.post("/create-item", (req, res) => {      // post datani olib keladi va database ga malutmot yozish un
+    console.log(req.body);
+    res.json({ test: "success" });
+})
+app.get("/", function(req, res){               // get - malumot olish, o'qish un
+    res.render("harid");
 }); 
 
-app.get("/gift", function(req, res){
-    res.end("Siz sovgalar pagedasiz");
-}); 
+
+// app.get("/hello", function(req, res){
+//     res.end("Hello World");
+// }); 
+
+// app.get("/gift", function(req, res){
+//     res.end("Siz sovgalar pagedasiz");
+// }); 
 
 const server = http.createServer(app);
 let PORT = 3000;
