@@ -1,13 +1,16 @@
 {
 "name": "Steve",
 "profession": "Software Engineer",
-"age": 20,
-"residence": "S.Korea", 
-"adress": "S.Korea, Busan",
-"languages": ["Uzbek", "Korea", "English"],
-"skill": ["Html", "Css", "Js", "NodeJS", "Python"],
+"age": 28,
+"residence": "Uzbekistan", 
+"adress": "S.Korea, Seoul",
+"languages": ["Uzbek", "Korean", "English"],
+"languagepr": [100, 80, 85],
+"freelance": "Java Script",
+"skills": ["Html", "Css", "Js", "NodeJS", "Python"],
+"skillspr": [90, 80, 70,  80, 65],
 "extra_skills": ["Bootstrap", "Materialize", "Styling", "Sass", "Django", "Flask", "GIT Knowledge"],
 "work_place": "IT Company", 
-"service_desc": "Add afasd fasddasfa sdfdfsda",
-"about_me": "good at coomunication"
-}
+"service_desc": "service",
+"about_me": " likes football"
+} 
