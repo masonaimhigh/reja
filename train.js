@@ -27,7 +27,7 @@ const list = [
 
 // CALBACK FUNCTIONS
 
-// function maslahatBering(a, callback) {
+// function maslahatBering(a, callback) { 
 //   if (typeof a !== "number") callback("Insert number", null);
 //   else if (a <= 20) callback(null, list[0]);
 //   else if (a > 20 && a <= 30) callback(null, list[1]);
@@ -72,7 +72,7 @@ async function maslahatBering(a) {
 }
 
 // call via then / catch
-// console.log("passed here 0");Add commentMore actions
+// console.log("passed here 0");
 // maslahatBering(20)
 //   .then((data) => {
 //     console.log("javob:", data);
@@ -81,9 +81,6 @@ async function maslahatBering(a) {
 //     console.log("ERROR:", err);
 //   });
 // console.log("passed here 1");
-
-// async function synchronus functionlar to'liq ishga tushib bolgach, async function
-// natijalari bn Node Js ishlay boshlaydi, shu sabab single thread ni band qilmaydi event loop orqali thrad poolga tashlayveradi
 
 // call via asyn / await
 async function run() {
