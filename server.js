@@ -1,6 +1,5 @@
-console.log("Web Serverni boshlash");
+console.log("Web serverni boshlash");
 const express = require("express");
-const res = require("express/lib/response");
 const app = express();
 const http = require("http");
 const fs = require("fs");
@@ -14,42 +13,43 @@ fs.readFile("database/user.json", "utf8", (err, data) => {
   }
 });
 
-
-// 1 Kirish code
+//1: Kirish kodlari
 app.use(express.static("public"));
 app.use(express.json());
-app.use(express.urlencoded({extended:true})); // html form recieved
+app.use(express.urlencoded({ extended: true }));
 
-//2 Session
-//3 Views - BSSR backenda frontend 
-app.set('views', "views");
+//2:Session code
+
+//3: View code
+// BCCR - backend da view, fronted yasaymiz, bu tradational usul - backend html yasab climate ga yuboramiz
+app.set("views", "views");
 app.set("view engine", "ejs");
 
+//4: Routing code
+// app.get("/hello", function (req, res) {
+//   res.end(`<h1 style= "background: red">Hello World </h1>`);
+// });
 
-//4 Routing code
-app.post("/create-item", (req, res) => {      
-    // TODO: code with db here
-})
+// app.get("/gift", function (req, res) {
+//   res.end(`<h1>Siz sovgalar bolimidasiz</h1>`);
+// });
+app.post("/create-item", (req, res) => {
+  console.log(req.body);
+  res.json({ test: "success" });
+});
 
 app.get("/author", (req, res) => {
   res.render("author", { user: user });
 });
 
-app.get("/", function(req, res){               
-    res.render("harid");
-}); 
-
-
-// app.get("/hello", function(req, res){
-//     res.end("Hello World");
-// }); 
-
-// app.get("/gift", function(req, res){
-//     res.end("Siz sovgalar pagedasiz");
-// }); 
-
+app.get("/", (req, res) => {
+  res.render("reja");
+});
 const server = http.createServer(app);
 let PORT = 3000;
-server.listen(PORT, function(){
-    console.log(`The server is running successfully on port: ${PORT}`);
-})
+server.listen(PORT, function () {
+  console.log(`The server is running succesfully on port: ${PORT}`);
+  console.log(
+    `The server is running succesfully on port: ${PORT}, http://localhost:${PORT}`
+  );
+});
