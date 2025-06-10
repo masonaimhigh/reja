@@ -12,10 +12,10 @@ fs.readFile("database/user.json", "utf8", (err, data) => {
   }
 });
 
-//MongoDB 
-const bd = require("./server").db();
+//MongoDB call
+const db = require("./server").db();
 
-//1: Kirish kodlari
+//1: Kirish kodlari 
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -23,18 +23,11 @@ app.use(express.urlencoded({ extended: true }));
 //2:Session code
 
 //3: View code
-// BCCR - backend da view, fronted yasaymiz, bu tradational usul - backend html yasab climate ga yuboramiz
+// BCCR - backend da view, fronted yasaymiz, 
 app.set("views", "views");
 app.set("view engine", "ejs");
 
 //4: Routing code
-// app.get("/hello", function (req, res) {
-//   res.end(`<h1 style= "background: red">Hello World </h1>`);
-// });
-
-// app.get("/gift", function (req, res) {
-//   res.end(`<h1>Siz sovgalar bolimidasiz</h1>`);
-// });
 app.post("/create-item", (req, res) => {
   console.log(req.body);
   res.json({ test: "success" });
@@ -45,6 +38,14 @@ app.get("/author", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.render("reja");
+db.collection("plans").find().toArray((err, data) => {
+  if(err) {
+    console.log(err);
+    res.end("something went wrong")
+  } else {
+    console.log(data);
+    res.render("reja");
+  }
+});
 });
 module.exports = app;
