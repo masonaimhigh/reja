@@ -1,17 +1,15 @@
 // A TASK 
 /*
-function countLetter(letter, word) {
+function countDigits(string) {
   let count = 0;
-  for (let i = 0; i < word.length; i++) {
-    if (word[i] === letter) {
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] >= '0' && string[i] <= '9') {
       count++;
     }
   }
   return count;
 }
-
-console.log(countLetter("e", "engineer")); 
-console.log(countLetter("o", "boost")); 
+console.log(countDigits("aadsfs9")); 
 */
 
 
