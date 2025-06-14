@@ -13,7 +13,7 @@ mongodb.connect(connectionString,
         if(err) console.log("Error on connection MongoDB",err);
         else {
             console.log("MongoDb connection succeed");
-            module.exports = client;
+            module.exports = client; //TCP
             
             const app = require("./app");
             const server = http.createServer(app);
