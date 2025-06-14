@@ -1,16 +1,73 @@
-// A TASK 
-/*
-function countDigits(string) {
-  let count = 0;
-  for (let i = 0; i < string.length; i++) {
-    if (string[i] >= '0' && string[i] <= '9') {
-      count++;
+// C TASK 
+class Shop {
+  constructor(non, lagmon, cola) {
+    this.products = {
+      non: non,
+      lagmon: lagmon,
+      cola: cola
+    };
+  }
+
+  getTime() {
+    const now = new Date();
+    const soat = String(now.getHours()).padStart(2, '0');
+    const minut = String(now.getMinutes()).padStart(2, '0');
+    return `Hozir ${soat}:${minut}da`;
+  }
+
+  qoldiq() {
+    const time = this.getTime();
+    const { non, lagmon, cola } = this.products;
+    console.log(`${time} ${non}ta non, ${lagmon}ta lag'mon va ${cola}ta cola mavjud!`);
+  }
+
+  sotish(nomi, soni) {
+    if (this.products[nomi] === undefined) {
+      console.log(`Bunday mahsulot mavjud emas: ${nomi}`);
+      return;
+    }
+
+    if (this.products[nomi] < soni) {
+      console.log(`Yetarli ${nomi} yo'q! Mavjud: ${this.products[nomi]}ta`);
+    } else {
+      this.products[nomi] -= soni;
+      console.log(`${this.getTime()} ${soni}ta ${nomi} sotildi.`);
     }
   }
-  return count;
+
+  qabul(nomi, soni) {
+    if (this.products[nomi] === undefined) {
+      console.log(`Yangi mahsulot qo'shildi: ${nomi}`);
+      this.products[nomi] = 0;
+    }
+
+    this.products[nomi] += soni;
+    console.log(`${this.getTime()} ${soni}ta ${nomi} qabul qilindi.`);
+  }
 }
-console.log(countDigits("aadsfs9")); 
-*/
+
+const shop = new Shop(4, 5, 2);
+
+shop.qoldiq();
+
+shop.sotish("non", 3);
+shop.qabul("cola", 4);
+shop.qoldiq();
+
+
+
+//D task 
+function checkContent(str1, str2) {
+  const normalize = str => str.split('').sort().join('');
+  return normalize(str1) === normalize(str2);
+}
+console.log(checkContent("mitgroup", "gmtiprou")); 
+console.log(checkContent("hello", "olleh"));       
+console.log(checkContent("abc", "abcd"));          
+console.log(checkContent("openai", "aiopen"));     
+
+
+
 
 
 console.log("Jack Ma maslahatlari");
