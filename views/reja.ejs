@@ -33,9 +33,8 @@
           </div>
         </form>
       </div>
-
-      <!-- <%= items[0].reja %> -->
-
+ 
+    
       <ul id="item-list" class="list-group pb-5">
               <% items.map(function(item){ %>
               <li
@@ -58,8 +57,16 @@
                 </div>
               </li>
               <% }) %>
-            </ul>
-    </div>
+            </ul> 
+   <button
+        id="clean-all"
+        class="btn btn-danger"
+        style="border-radius: 20px"
+        ;
+      >
+        Hamma Rejalarni O'chirish
+      </button>
+          </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/browser.js"></script>
   </body>
